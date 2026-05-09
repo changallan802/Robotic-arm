@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <node pkg="gazebo_ros" type="spawn_model"
+        args="-urdf -file $(find color_claw)/urdf/arm.urdf -model arm"/>
+
+  <node pkg="color_claw" type="spawn_balls.py"/>
+  <node pkg="color_claw" type="controller.py"/>
+</launch>
